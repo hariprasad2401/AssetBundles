@@ -1,0 +1,17 @@
+resources:
+  jobs:
+    Ingestion_job:
+      name: "Ingestion_job"
+      max_concurrent_runs: 4
+      tasks:
+        - task_key: ingestion_job
+          notebook_task:
+            notebook_path: ../../src/notebook/notebook1.ipynb
+            base_parameters:
+              catalog_name: ${var.catalog_name}
+            source: WORKSPACE
+      tags:
+        dev: hariprasadkulkarni2130
+      queue:
+        enabled: true
+      performance_target: PERFORMANCE_OPTIMIZED
