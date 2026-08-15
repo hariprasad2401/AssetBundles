@@ -1,0 +1,15 @@
+resources:
+  pipelines:
+    pipeline_dlt_tutorial:
+      name: demopipeline
+      libraries:
+        - glob:
+            include: ../../src/Pipelines/DLT_Root/transformations/**
+      schema: dlt_schema
+      continuous: false
+      development: false
+      photon: true
+      channel: CURRENT
+      catalog: ${var.catalog_name}
+      serverless: true
+      root_path: ../../src/Pipelines/DLT_Root
